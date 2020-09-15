@@ -1,7 +1,6 @@
 def linear_search(arr, target):
     # Your code here
     # search target in the arr[]
-    
     for i in range(len(arr)):
         if arr[i] == target: # if target is found return the index of that target
             return i # i is the index of target we are looking at
@@ -13,16 +12,33 @@ def linear_search(arr, target):
 def binary_search(arr, target):
 
     # Your code here
-    low = 0 
-    high = len(arr) -1
-    while low <=high:
-        middle = (low + high) // 2
-        guess = arr[middle]
-        if guess == target:
+    left = 0 
+    right = len(arr) -1
+    while left <= right:
+        middle = (left + right) // 2
+        if arr[middle] == target:
             return middle
-        if guess > target:
-            high = middle -1
+        elif arr[middle] > target:
+            right = middle -1
         else:
-            low = middle + 1
+            left = middle + 1
 
     return -1  # not found
+
+    # left = 0 
+    # right = len(arr) -1
+    # while right >= left:
+    #     middle = (left + right) // 2
+    #     if arr[middle] == target:
+    #         return middle
+    #     elif arr[middle] < target:
+    #        left = middle + 1
+    #     else:
+    #         right = middle - 1
+
+    # return -1  # not found
+
+
+arr = [3, 4, 6, 16 , 26, 28, 52, 55]
+
+print(binary_search(arr, 52))
